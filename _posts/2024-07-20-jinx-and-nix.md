@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Jinx and Nix
+title: Jinx.el and Nix
 tags: Emacs Nix
 ---
 
