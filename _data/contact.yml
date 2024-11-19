@@ -3,8 +3,9 @@
 - type: github
   icon: "fab fa-github"
 
-- type: twitter
-  icon: "fa-brands fa-x-twitter"
+- type: bilibili
+  icon: "fa-brands fa-bilibili"
+  uid: 66883753
 
 - type: email
   icon: "fas fa-envelope"
@@ -13,6 +14,7 @@
 - type: rss
   icon: "fas fa-rss"
   noblank: true
+
 # Uncomment and complete the url below to enable more contact options
 #
 # - type: mastodon
