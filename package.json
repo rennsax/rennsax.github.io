@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Source files for Rensax's blog.",
   "author": "Bojun Ren",
+  "homepage": "https://github.com/rennsax/rennsax.github.io",
   "license": "MIT",
   "since": 2024,
   "scripts": {
