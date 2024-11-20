@@ -47,4 +47,4 @@ def get_logger(name: str) -> logging.Logger:
 ```
 
 About the colors in console: see [Terminal Colors | Chris Yeh
-(chrisyeh96.github.io)](https:chrisyeh96.github.io/2020/03/28/terminal-colors.html).
+(chrisyeh96.github.io)](https://chrisyeh96.github.io/2020/03/28/terminal-colors.html).
