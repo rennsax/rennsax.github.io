@@ -717,15 +717,6 @@ $btn-mb: 0.5rem;
     height: 7rem;
     overflow: hidden;
     box-shadow: var(--avatar-border-color) 0 0 0 2px;
-    transform: translateZ(0); /* fixed the zoom in Safari */
-
-    img {
-      transition: transform 0.5s;
-
-      &:hover {
-        transform: scale(1.2);
-      }
-    }
   }
 
   .profile-wrapper {
