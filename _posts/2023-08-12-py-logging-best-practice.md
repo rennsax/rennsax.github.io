@@ -2,6 +2,8 @@
 layout: post
 title: "Logging in Python: My Best Practice"
 tags: Python
+description: Use Python's standard logging library.
+last_modified_at: 2024-11-20 12:02:28 +0800
 ---
 
 While using [py.logging](https://docs.python.org/3/library/logging.html), I usually wrap a function like this:

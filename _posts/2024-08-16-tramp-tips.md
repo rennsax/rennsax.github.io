@@ -2,6 +2,8 @@
 title: Tramp Pollutes my <code>$HISTFILE</code>!
 layout: post
 tags: Emacs
+description: One day, I found my shell history file is polluted by some program. This blog describes how I found the culprit and tried to tweak Tramp.
+last_modified_at: 2024-11-20 11:57:38 +0800
 ---
 
 ## Background
