@@ -13,7 +13,7 @@ However I found it really hard to manipulate all these things. It's a
 time-consuming job. That's why I began to change my mind. I know Rust has become
 a more popular language which is regarded to be faster and safer. Many Unix
 tools have modern alternatives that are written with Rust, like `fd` for `find`,
-`lsd` for `ls`... See [ibraheemdev/modern-unix](https:github.com/ibraheemdev/modern-unix) for the collection.
+`lsd` for `ls`... See [ibraheemdev/modern-unix](https://github.com/ibraheemdev/modern-unix) for the collection.
 
 In this article I will discuss how I make my daily command-line workflow more
 easier with minimal “modern tools” ‐ I still want to keep the generality. I'm
