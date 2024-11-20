@@ -4,7 +4,7 @@ layout: post
 tags: Emacs
 ---
 
-# Background
+## Background
 
 Today I logged in my machine and started working as usual. Then I accidentally found something nasty in my history file (`~/.bash_history`):
 
@@ -15,7 +15,7 @@ Of course, my roommates and fellows are innocent. These commands are generated b
 Here is my experience about figuring out the problem, and finally coming up with some resolutions that may be helpful for you.
 
 
-# What is Tramp?
+## What is Tramp?
 
 Emacs users shall never neglect Tramp, a builtin Emacs package that implements “Transparent Remote (file) Access, Multiple Protocol”. It helps you seamlessly connect to a remote machine, or handling remote files and processes.
 
@@ -46,7 +46,7 @@ You can directly open a remote file in the buffer:
 Tramp does these by detecting whether you are handling a remote file (`file-remote-p`), so you find that it “just works”. Moreover, it supports numerous methods to connect to remote machine, including ssh, docker, kubernetes, adb, &#x2026;
 
 
-# What's wrong with Tramp?
+## What's wrong with Tramp?
 
 It's almost a rife consensus: Tramp is slow. You may compare it with VS Code's remote ssh extension, which is also integrated with the editor seamlessly but much faster than Tramp. Why is Tramp so slow?
 
@@ -55,7 +55,7 @@ The problem of Tramp is also its advantage: **It tries to do a lot of stuff, agg
 Before proposing the solution, let's investigate how Tramp works.
 
 
-# Tramp Internal
+## Tramp Internal
 
 Let's begin with the `make-process` example mentioned above.
 
@@ -113,7 +113,7 @@ There are several variables that are essential for Tramp's behavior in the examp
 > To better understand `process-environment`, you may want to read the source code of `tramp-sh-handle-make-process`.
 
 
-# So, why is my HISTFILE polluted?
+## So, why is my HISTFILE polluted?
 
 The default value of `tramp-histfile-override` is `~/.tramp_history`, which means Tramp will set `HISTFILE` to it when opening a new shell, more specifically, during `tramp-open-shell`.
 
@@ -140,12 +140,12 @@ The default value of `tramp-histfile-override` is `~/.tramp_history`, which mean
 The problem is that, the command to open the new shell is executed in the original shell that is used for “initializing a connection”. After `ssh` into a remote shell, Tramp will always tries to `exec` into another shell! So each time you create a connection, an `exec ... /bin/sh -i` command is written into the login shell's history file, typically `~/.bash_history`. On most GNU/Linux distros, `sh` is just alias of `bash`, and they share the same history file.
 
 
-# Solutions
+## Solutions
 
 Luckily I've found the reason, so the remaining problem is to apply a reasonable (and possibly elegant) workaround. Here are some choices.
 
 
-## Adapt the shell
+### Adapt the shell
 
 The most easily conceivable solution might be configuring the shell. I asked ChatGPT: "How to make bash stop writing some commands (in certain pattern) into the history file?" And he gave me a few methods, including setting `HISTIGNORE`, customizing `history` function and so on.
 
@@ -158,14 +158,14 @@ sed -i "/^exec env TERM.*INSIDE_EMACS.*ENV.*PROMPT_COMMAND.*PS1.*PS2.*PS3.*-i$/d
 This kind of solutions is simple and easy to achieve. However it's not adopted by myself, since I do not want to touch my shell configuration file to adapt for a narrow use case&#x2026; The problem is caused by Tramp's over-design and lack of meticulous consideration, and the shell has no responsibility to pay the bill.
 
 
-## Advise `tramp-open-shell`
+### Advise `tramp-open-shell`
 
 `tramp-open-shell` sends an `exec` command to the remote login shell. If the command is prefixed with a space and your shell has enabled `ignorespace` option (this is a quite normal and useful option), then the command will finally ignored by the shell, without writing to the history file.
 
 Unfortunately, the string template for the command is hard-coded in `tramp-open-shell`. The only way to prefix a space is to **override the whole function**! The solution works, but it's really ugly so I abandon it too.
 
 
-## Set HISTFILE in advance
+### Set HISTFILE in advance
 
 Yeah, we can set HISTFILE (to an empty string) in advance, before `tramp-open-shell` attempts to run that ugly command.
 
@@ -195,7 +195,7 @@ So how to tell Tramp that it should use this command to initialize a connection?
 Finally, we've set HISTFILE of initial shell, before it `exec`s into another shell! And I apply this ultimate solution at last.
 
 
-# Other Tips
+## Other Tips
 
 I'd like to recommend the configuration:
 
