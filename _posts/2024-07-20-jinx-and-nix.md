@@ -2,6 +2,7 @@
 layout: post
 title: Jinx.el and Nix
 tags: Emacs Nix
+last_modified_at: 2024-11-20 12:03:44 +0800
 ---
 
 ## Background
