@@ -53,7 +53,13 @@ layout: compress
               {% include {{ _include_path }} lang=lang %}
             {% endfor %}
 
-            {% include_cached footer.html lang=lang %}
+            {% if page.url == "/about/" %}
+              {% assign is_about = true %}
+            {% else %}
+              {% assign is_about = false %}
+            {% endif %}
+
+            {% include footer.html lang=lang is_about=is_about %}
           </div>
         </div>
 
