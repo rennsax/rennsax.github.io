@@ -3,7 +3,7 @@ title: Tramp Pollutes my <code>$HISTFILE</code>!
 layout: post
 tags: Emacs
 description: One day, I found my shell history file is polluted by some program. This blog describes how I found the culprit and tried to tweak Tramp.
-last_modified_at: 2024-11-20 11:57:38 +0800
+last_modified_at: 2024-11-21 11:55:47 +0800
 ---
 
 ## Background
@@ -88,7 +88,7 @@ To create a remote process, Tramp will try to connect to the remote machine, and
 Here is a sequence diagram that illustrates the main procedure to call a remote process:
 
 <!-- FIXME: popup is too small -->
-![How does Tramp handle make-process?](/assets/img/2024-08-16-tramp-handle-make-process.svg){: w="1000"}
+![How does Tramp handle make-process?](/assets/img/2024-08-16-tramp-handle-make-process.png){: w="1000"}
 
 From the diagram above, you can notice that two `exec`s are used. It's roughly equivalent to executing two commands in your shell:
 

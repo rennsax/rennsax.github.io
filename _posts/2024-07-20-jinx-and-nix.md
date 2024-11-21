@@ -2,7 +2,7 @@
 layout: post
 title: Jinx.el and Nix
 tags: Emacs Nix
-last_modified_at: 2024-11-20 12:03:44 +0800
+last_modified_at: 2024-11-21 10:43:46 +0800
 ---
 
 ## Background
@@ -145,7 +145,7 @@ where they come from 🥲. And in fact, we want some English dictionaries.
 Enchant does not provide spell checking functionalities itself. In other words,
 it **must** reply on other spell checkers.
 
-![Jinx Enchant Architecture](/assets/img/2024-07-20-jinx-enchant-architecture.svg){: w="500"}
+![Jinx Enchant Architecture](/assets/img/2024-07-20-jinx-enchant-architecture.png){: w="400"}
 
 Yes, I'm not kidding. If you install enchant from some other package manager,
 like Homebrew, you'll find it can find a lot of available dictionaries. The
