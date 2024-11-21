@@ -1,0 +1,54 @@
+shape: sequence_diagram
+
+tshmp: |lisp
+  tramp-sh-handle-make-process
+|
+
+tmoc: |lisp
+  tramp-maybe-open-connect
+|
+tocsis: |lisp
+  tramp-open-connection-setup-interactive-shell
+|
+tos: |lisp
+  tramp-open-shell
+|
+
+shell.shape: oval
+
+tshmp -> tmoc: tramp-send-command
+
+Connect to remote server: {
+  tmoc -> shell.ssh: tramp-send-command
+  shell.ssh -> shell.ssh: "exec ssh .."
+  shell.ssh -> tmoc
+}
+
+Setup interactive shell: {
+  tmoc -> tocsis
+
+  Opening remote shell: {
+    tocsis -> tos: tramp-remote-shell
+    tos -> shell.ors: tramp-send-command
+    tos -> shell.ors: tramp-histfile-override
+    shell.ors -> shell.ors: "exec env ... /bin/sh -i"
+    shell.ors -> tos
+    tos -> tocsis
+  }
+
+  Set environment variables: {
+    tocsis -> shell.env: tramp-send-command
+    tocsis -> shell.env: tramp-send-command
+    tocsis -> shell.env: ...... ......
+    tocsis -> shell.env: tramp-send-command
+  }
+
+  tocsis -> tmoc
+}
+
+tmoc -> tshmp
+
+Make the process remotely: {
+  tshmp -> shell.process: tramp-send-command
+  shell.process -> tshmp
+}
