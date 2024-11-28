@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.2
+
+- CSS customization
+- SEO: set Google site verification code
+- Remove the distracting update-list
+
 ## 0.0.1 (2024-11-19)
 
 Migrate to jekyll-theme-chirpy.
