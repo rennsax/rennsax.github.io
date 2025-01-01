@@ -76,8 +76,10 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ '/assets/css/:THEME.css' | replace: ':THEME', site.theme | relative_url }}">
 
-  <!-- Web Font -->
-  <link rel="stylesheet" href="{{ site.data.origin[type].webfonts | relative_url }}">
+  <!-- Fonts -->
+  {% for font_ref in site.data.origin[type].fonts %}
+    <link rel="stylesheet" href="{{ font_ref | relative_url }}" />
+  {% endfor %}
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ site.data.origin[type].fontawesome.css | relative_url }}">

@@ -1,6 +1,7 @@
 # fonts
 
-webfonts: /assets/lib/fonts/main.css
+fonts:
+  - /assets/lib/fonts/main.css
 
 # Libraries
 
