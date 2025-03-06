@@ -3,7 +3,7 @@ title: Strong Type System Should be Included in ALL Programming Languages!
 layout: post
 tags: PL
 date: 2024-11-26 17:48:29 +0800
-last_modified_at: 2025-01-07 11:23:41 +0800
+last_modified_at: 2025-03-06 18:26:56 +0800
 ---
 
 ![Language Quadrant](/assets/img/type-system-quadrant_light.png){: .light}
@@ -23,6 +23,6 @@ Compilers of strongly-typed languages, like C++ and Haskell, are able to find mo
 
 Languages like Python and Ruby are more merciful — type errors occur during runtime instead of compiling time. They keep the noble virtues of typing while providing some flexibility for the programmers. These languages are relatively easy to begin with, but mastering them still demands a significant amount of effort.
 
-In conclusion, **it's a tradeoff between usability and maintainability**. A project of more strongly-typed languages is easier to be maintained, especially when the project grows to be substantially huge. A weakly-typed language is friendly for programming newbies, but most of them are inherently error-prone. Learning a programming language with complete type system is much more difficult, though. Luckily the essential idea is universal, so you don't need to repeatedly start "from scratch" when acquiring a new language.
+In conclusion, **it's a tradeoff between usability and maintainability**. A project of more strongly-typed languages is easier to be maintained, especially when the project grows to be substantially huge. A weakly-typed language is friendly for programming newbies, but most of them are inherently error-prone. Learning a programming language with complete type system is much more difficult, though. Luckily the essential idea is universal, so you don't need to repeatedly start "from scratch" to acquire a new language.
 
 [thanks-js]: https://www.reddit.com/r/ProgrammerHumor/comments/8srix1/thanks_brendan_for_giving_us_the_javascript/
