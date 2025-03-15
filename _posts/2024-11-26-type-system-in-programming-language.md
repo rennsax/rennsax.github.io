@@ -6,8 +6,8 @@ date: 2024-11-26 17:48:29 +0800
 last_modified_at: 2025-03-06 18:26:56 +0800
 ---
 
-![Language Quadrant](/assets/img/type-system-quadrant_light.png){: .light}
-![Language Quadrant](/assets/img/type-system-quadrant_dark.png){: .dark}
+![Language Quadrant](/assets/img/2024-11/type-system-quadrant_light.png){: .light}
+![Language Quadrant](/assets/img/2024-11/type-system-quadrant_dark.png){: .dark}
 _My personal classification for programming languages._
 
 > - Strong/weak typing and dynamic/static are two orthogonal factors for programming languages.
