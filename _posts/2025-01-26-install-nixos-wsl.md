@@ -3,12 +3,22 @@ title: Install NixOS on WSL
 layout: post
 tags: Nix WSL
 date: 2025-01-26 18:50:00 +0800
-last_modified_at: 2025-03-11 11:07:55 +0800
+last_modified_at: 2025-03-15 10:43:24 +0800
 ---
 
 **WSL (Windows Subsystem for Linux)** is a brilliant feature of Microsoft Windows that allows for using a Linux environment without the need for a separate virtual machine or dual booting. Three years ago, I have experienced a nice journey on WSL with my PC, as I'm much more familiar with a “Linuxified” development environment. Until I switched my workstation to MacBook, WSL has always been my good companion.
 
 During this winter vacation, I spend much time with my Windows PC (mainly because I want to play Hearthstone on Windows). Then I find it really inconvenient to transfer files from my Windows PC to my workstation. Usually I will use `python -m http.server` to expose the file system to LAN, but I'm a novice when it comes to Windows — I does not even know about how to install Python interpreter and set the environment variables correctly on Windows. Then I think it's the best chance for me to pick up WSL again, as I also heard about the [NixOS-WSL][nixos-wsl] project before, which allows me to run my favorite GNU/Linux distro, NixOS on WSL.
+
+## Prerequests
+
+To enable WSL, you need to turn on Hyper-V feature on your Windows host. Go to control - turn windows feature on / off, and turn on "Virtual Machine Platform" and "Hyper-V". After setup, reboot your host.
+
+To install WSL, just open the Windows terminal and type:
+
+``` powershell
+wsl --install --no-distribution
+```
 
 ## Basic Usage of WSL
 
