@@ -52,7 +52,7 @@
 
   <title>
     {%- unless page.layout == 'home' -%}
-      {{ page.title | append: ' | ' }}
+      {{ page.title | strip_html | append: ' | ' }}
     {%- endunless -%}
     {{ site.title }}
   </title>
