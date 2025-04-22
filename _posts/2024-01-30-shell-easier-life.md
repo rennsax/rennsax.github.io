@@ -3,6 +3,7 @@ layout: post
 title: "Shell: How I Make My Life Easier?"
 tags: tools
 last_modified_at: 2024-11-20 12:03:29 +0800
+published: false
 ---
 
 I used to be enthusiastic about Shell builtins: history(3), readline(3), find(1)
