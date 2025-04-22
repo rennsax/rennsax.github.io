@@ -1,5 +1,5 @@
 ---
-title: <span ed-sheeran>Ed Sheeran Tour</span> (Hangzhou)
+title: <span class="ed-sheeran">Ed Sheeran Tour</span> (Hangzhou)
 layout: post
 tags: 随笔
 lang: zh-CN
@@ -36,7 +36,7 @@ _专辑 - (Subtract)_
         font-style: normal;
 }
 
-h1 span[ed-sheeran] {
+h1 span.ed-sheeran {
   font-family: momstypewriterregular;
 }
 </style>
