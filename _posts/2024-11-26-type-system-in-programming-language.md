@@ -4,6 +4,7 @@ layout: post
 tags: PL
 date: 2024-11-26 17:48:29 +0800
 last_modified_at: 2025-03-06 18:26:56 +0800
+published: false
 ---
 
 ![Language Quadrant](/assets/img/2024-11/type-system-quadrant_light.png){: .light}
