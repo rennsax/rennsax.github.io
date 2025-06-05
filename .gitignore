@@ -21,5 +21,3 @@ node_modules
 !.vscode/tasks.json
 
 # Misc
-_sass/vendors
-assets/js/dist
