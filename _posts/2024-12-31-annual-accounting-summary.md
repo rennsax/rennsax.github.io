@@ -4,7 +4,7 @@ layout: post
 tags: 随笔
 lang: zh-CN
 date: 2024-12-31 18:00:00 +0800
-last_modified_at: 2025-01-06 13:12:48 +0800
+last_modified_at: 2025-06-10 15:32:37 +0800
 ---
 
 不知不觉居然到了 2024 年的最后一天。学习和生活方面其实没有什么好总结的，大约还是在继续摸索适合自己的节奏。不过去年 pick 了一个蛮有趣的小习惯，今年可以说是逐渐从入门到精通了，干脆写一篇文章总结一下个人的经验吧。
@@ -73,7 +73,7 @@ Beancount 的作者在文档中介绍过 Beancount 记账的基本工作流：[H
 
 虽然 double-entry-generator 项目本身有些槽点，但它依然是非常优秀的开源项目，因为它着实解决了我长期以来的记账痛点。使用这种自动导入的记账方式后，我幡然醒悟，自己原先记账的痛苦来源是枯燥乏味的对账过程。人很难从重复的工作中寻觅到源源不断的成就感和动力，最终就会因为正反馈缺失而无法养成习惯。Double-entry-generator 算是基本解决了我的记账症结问题，从此，我将记账习惯改为了每个礼拜一次，过程非常轻松：在微信和支付宝等平台下载个人账单数据，然后用 double-entry-generator 转换为 Beancount 格式，最后手动补充一下 FIXME 字段（因为有些账单不能完全自动转换为 Beancount 格式）并核对一下账户剩余金额。整个过程大约只要十五分钟，可以同时听几首歌或者看看视频，可谓是我每个礼拜最轻松惬意的时光。几乎全自动的账单导入方式也大大降低了记账的出错率，大部分情况下最后的 balance 语句都能直接通过，“it just works”！
 
-至此，我的记账工作流已经近乎完美。我也改进了其他的一些周边设施，比如使用 GNU Emacs 作为编辑器，因为有官方提供的 [beancount-mode](https://github.com/beancount/beancount-mode) 插件，编辑体验更加友好；[将 double-entry-generator 打包到 Nixpkgs](https://github.com/NixOS/nixpkgs/pull/347402)，方便安装使用；开发了 [beancount\_sjtu\_ecard\_importer][beancount\_sjtu\_ecard\_import] 用来导入交大校园卡的流水信息，补足了自动化记账的“最后一块拼图”。如今，Beancount 记账非常自然融入了我的日常工作流，这得益于 Beancount 本身的高可拓展性和自由开放的格式，也多亏了开源社区的力量，让我能接触复式记账法这一高效完备的记账方法，学习更多和记账有关的会计学知识。
+至此，我的记账工作流已经近乎完美。我也改进了其他的一些周边设施，比如使用 GNU Emacs 作为编辑器，因为有官方提供的 [beancount-mode](https://github.com/beancount/beancount-mode) 插件，编辑体验更加友好；[将 double-entry-generator 打包到 Nixpkgs](https://github.com/NixOS/nixpkgs/pull/347402)，方便安装使用；开发了 [beancount-importer-sjtu-ecard][beancount-sjtu-ecard-import] 用来导入交大校园卡的流水信息，补足了自动化记账的“最后一块拼图”。如今，Beancount 记账非常自然融入了我的日常工作流，这得益于 Beancount 本身的高可拓展性和自由开放的格式，也多亏了开源社区的力量，让我能接触复式记账法这一高效完备的记账方法，学习更多和记账有关的会计学知识。
 
 ## 可视化和报告
 
@@ -101,4 +101,4 @@ select sum(position) where account ~ 'Assets:'
 
 [double-entry-generator]: https://github.com/deb-sig/double-entry-generator
 [fava]: https://github.com/beancount/fava
-[beancount\_sjtu\_ecard\_import]: https://github.com/rennsax/beancount_sjtu_ecard_importer
+[beancount-sjtu-ecard-import]: https://github.com/rennsax/beancount-importer-sjtu-ecard
