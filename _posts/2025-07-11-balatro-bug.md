@@ -1,6 +1,9 @@
 ---
 title: iOS 版小丑牌 Bug 修复记录
 layout: post
+image:
+  path: /assets/img/2025-07/balatro-logo.png
+  alt: 2024 TGA 年度最佳独立游戏《Balatro》
 tags: Game
 lang: zh-CN
 description: 我是如何拯救我的小丑牌存档的
