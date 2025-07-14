@@ -1,6 +1,10 @@
 ---
 title: <span class="ed-sheeran">Ed Sheeran Tour</span> (Hangzhou)
 layout: post
+image:
+  path: /assets/img/2025-02/ed-sheeran-cover.jpg
+  lqip: /assets/img/2025-02/ed-sheeran-cover.lqip.jpg
+  alt: 舞台上的 Ed Sheeran
 tags: 随笔
 lang: zh-CN
 description: Miracle Night

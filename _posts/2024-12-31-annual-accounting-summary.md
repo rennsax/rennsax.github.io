@@ -2,6 +2,10 @@
 title: 2024 年度记账总结
 layout: post
 tags: 随笔
+image:
+  path: /assets/img/2024-12/beancount-logo.png
+  show_before_content: false
+  alt: beancount-logo
 lang: zh-CN
 date: 2024-12-31 18:00:00 +0800
 last_modified_at: 2025-06-10 15:32:37 +0800
