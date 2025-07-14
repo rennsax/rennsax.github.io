@@ -1,6 +1,10 @@
 ---
 title: Install NixOS on WSL
 layout: post
+image:
+  path: /assets/img/2025-01/nixos-wsl.svg
+  show_before_content: false
+  alt: NixOS-WSL
 tags: Nix WSL
 date: 2025-01-26 18:50:00 +0800
 last_modified_at: 2025-03-15 10:43:24 +0800
