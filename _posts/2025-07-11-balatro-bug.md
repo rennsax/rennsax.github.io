@@ -81,7 +81,7 @@ Archive:  ./Balatro.imazingapp
    240049                     35 files
 ```
 
-这里的文件 `Container/Library/Application Support/game/1/save.jkr` 就是我苦苦寻找的游戏存档。将其上传到 [Balatro ReTag][balatro retag] 网页中进行修复，替换掉原先的存档，最后压缩成新的 `imazingapp` 并从新的应用数据中恢复 Balatro 数据，便完成了存档替换！
+这里的文件 `Container/Library/Application Support/game/1/save.jkr`{: .filepath} 就是我苦苦寻找的游戏存档。将其上传到 [Balatro ReTag][balatro retag] 网页中进行修复，替换掉原先的存档，最后压缩成新的 `imazingapp` 并从新的应用数据中恢复 Balatro 数据，便完成了存档替换！
 
 应用数据恢复后，iPhone 会重启并进入设置引导界面，注意不要选择从其他设备传输数据即可。回到 Balatro 游戏界面，我的存档终于死而复生了😭。
 
@@ -99,15 +99,15 @@ profile.jkr
 save.jkr
 ```
 
-这些存档文件实质上是使用 deflate-raw 格式压缩后的 Lua table，`save.jkr` 是当前这一局游戏的信息，其他是一些收藏类数据。可以使用 Python 来查看存档信息：
+这些存档文件实质上是使用 deflate-raw 格式压缩后的 Lua table，`save.jkr`{: .filepath} 是当前这一局游戏的信息，其他是一些收藏类数据。可以使用 Python 来查看存档信息：
 
 ``` shell
 python3 -c "import zlib,sys;sys.stdout.buffer.write(zlib.decompress(sys.stdin.buffer.read(),-zlib.MAX_WBITS))" < ./save.jkr
 ```
 
-前面可以看到，使用 iMazing 提取出来的应用数据中只能看到 `save.jkr` 这个文件。没有另外两个文件的话，就不能把 iOS 上的完整存档导出到其他平台上。
+前面可以看到，使用 iMazing 提取出来的应用数据中只能看到 `save.jkr`{: .filepath} 这个文件。没有另外两个文件的话，就不能把 iOS 上的完整存档导出到其他平台上。
 
-稍加研究后，我发现 `meta.jkr` 和 `profile.jkr` 的数据其实存储在 `com.playstack.balatropremium.plist` 这个 Plist 文件中。这应该是因为 iOS 上的小丑牌需要使用 Apple Game Center 的云同步功能。为了提取出这两个存档文件，我写了一个对应的 Python 脚本：
+稍加研究后，我发现 `meta.jkr`{: .filepath} 和 `profile.jkr`{: .filepath} 的数据其实存储在 `com.playstack.balatropremium.plist`{: .filepath} 这个 Plist 文件中。这应该是因为 iOS 上的小丑牌需要使用 Apple Game Center 的云同步功能。为了提取出这两个存档文件，我写了一个对应的 Python 脚本：
 
 ``` python
 import zlib
@@ -136,7 +136,7 @@ if __name__ == "__main__":
     extract_ios_data("./com.playstack.balatropremium.plist")
 ```
 
-这个脚本会解析当前目录下的 `com.playstack.balatropremium.plist` 文件并提取出的 `meta.jkr` 和 `profile.jkr` 两个存档。再结合之前的 `save.jkr`，就可以获取完整的存档数据，迁移到其他平台。
+这个脚本会解析当前目录下的 `com.playstack.balatropremium.plist`{: .filepath} 文件并提取出的 `meta.jkr`{: .filepath} 和 `profile.jkr`{: .filepath} 两个存档。再结合之前的 `save.jkr`{: .filepath}，就可以获取完整的存档数据，迁移到其他平台。
 
 ## 附录：小丑牌源码获取
 
