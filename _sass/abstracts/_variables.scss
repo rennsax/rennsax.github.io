@@ -25,6 +25,12 @@ $code-dot-gap: 0.5rem !default;
 $code-icon-width: 1.75rem !default;
 
 /* fonts */
+@font-face {
+  font-family: 'LXGW Wenkai';
+  src: url('/assets/fonts/LXGWWenKai-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
 
-$font-family-base: 'LXGW Wenkai Screen', 'Microsoft Yahei', sans-serif !default;
-$font-family-heading: 'LXGW Wenkai Screen', 'Microsoft Yahei', sans-serif !default;
+$font-family-base: "LXGW Wenkai", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif !default;
+$font-family-heading: "LXGW Wenkai", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif !default;
