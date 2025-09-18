@@ -4,7 +4,7 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-Hi! 👋🏻 I'm an undergraduate at Shanghai Jiao Tong University with a passion for the open-source community. I'm engaged in scholarly pursuits at IPADS, the institute of parallel and distributed systems<a href="#footnote1"><sup>[1]</sup></a>.
+Hi! 👋🏻 I'm engaged in scholarly pursuits at IPADS, the institute of parallel and distributed systems<a href="#footnote1"><sup>[1]</sup></a>.
 
 Current academic interests:
 
