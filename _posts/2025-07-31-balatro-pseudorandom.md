@@ -9,18 +9,19 @@ image:
   alt: 52 spade tens in the Erratic Deck
   show_before_content: false
 date: 2025-07-31 21:44:52 +0800
+last_modified_at: 2026-03-05 14:42:37 +0800
 ---
 
 <!-- This is a promising blog for [my previous blog](/posts/balatro-bug/#附录小丑牌源码获取). -->
 
-Randomness is almost everywhere in electronic games — when picking up a new card or weapon, choosing the boss at the next level, and even generating the world. In rogue-like games like Balatro, randomness is rather important as it brings some uncertainness to your game experience. Randomness in Balatro is pseudo, and so is in most rogue-like games. Given a global seed and a specified game state, the next "random" number is almost predictable, given that you know the PRNG algorithm under the hood. This is a clever design that allows players to reproduce their game experience and share it with each other.
+Randomness is almost everywhere in electronic games — when picking up a new card or weapon, choosing the boss at the next level, and even generating the world. In roguelike games like Balatro, randomness is rather important as it brings some uncertainty to your game experience. Randomness in Balatro is pseudo, and so is it in most roguelike games. Given a global seed and a specified game state, the next "random" number is almost predictable, given that you know the PRNG algorithm under the hood. This is a clever design that allows players to reproduce their game experience and share it with each other.
 
 The more time I spent on playing Balatro, the deeper my fascination grows with its essence of randomness. Simple questions accumulated:
 - How does <span class="inline-card"><img src="/assets/img/2025-07/Tarot_Judgement.webp" alt="Judgement"/></span> **Judgement**{: .tarot} choose the Joker card to create?
 - Which joker card does <span class="inline-card"><img src="/assets/img/2025-07/Invisible_Joker.webp" alt="Invisible Joker"/></span> **Invisible Joker**{: .joker} choose to duplicate?
 - What's the likelihood of acquiring <span class="inline-card"><img src="/assets/img/2025-07/Spectral_The_Soul.webp" alt="The Soul"/></span> **The Soul**{: .spectral} in the Spectral and Arcana packs?
 
-Most of the time I'll utilize SL (save & load) to avoid bad results, for example the **Invisible Joker**{: .joker} duplicates a useless Joker card. However, it's helpful if you know one or two principles about these randomnesses. As a result, you can control the game somehow, relative to the three examples:
+Most of the time I'll utilize SL (save & load) to avoid bad results, for example the **Invisible Joker**{: .joker} duplicates a useless Joker card. However, knowing a few principles behind these mechanics can go a long way. For each of the three questions above, you can:
 - "Store" a Joker card in **Judgement**{: .tarot}.
 - Control the Joker card to duplicate.
 - Understand why you seldom see legendary Joker cards 😄.
@@ -51,7 +52,7 @@ end
 ```
 {: file="functions/misc_functions.lua (L298-313)" }
 
-We can ignore the first two `if` blocks at this moment, because they are just corner cases that are rarely triggered. This function can a sequence of generate random seeds for each individual key, for example `"lucky_mult"`. The current random seed is forwarded using the [LCG algorithm][lcg-algo], i.e. $X_{n+1} = (a X_{n}+c)\ \mathrm{mod}\ m$, where $a = 1.72431234$, $c=2.134453429141$ and $m=1$.
+We can ignore the first two `if` blocks at this moment, because they are just corner cases that are rarely triggered. This function generates a sequence of generate random seeds for each individual key, for example `"lucky_mult"`. The current random seed is forwarded using the [LCG algorithm][lcg-algo], i.e. $X_{n+1} = (a X_{n}+c)\ \mathrm{mod}\ m$, where $a = 1.72431234$, $c=2.134453429141$ and $m=1$.
 
 Given the global seed `G.GAME.pseudorandom.seed` in this game, we can "predict" the sequence of random seeds for each key, since the algorithm is deterministic. Seeds are used to produce random numbers:
 
@@ -67,7 +68,7 @@ end
 
 ## Try to Predict the Randomness!
 
-What's the first joker card in the first buffoon pack? First a number that indicates the rarity is generated with the key `'rarity1buf'`. Then the pool of all available joker cards is constructed, and the index of the chosen joker is generated with the key `'Joker'..rarity..'buf1'`. To see more details, read the definition of `create_card` in `functions/common_events.lua`{: .filepath}. I write [a simple Lua script](/assets/misc/balatro_get_first_joker.lua) to emulate this process.
+What's the first joker card in the first buffoon pack? First a number that indicates the rarity is generated with the key `'rarity1buf'`. Then the pool of all available joker cards is constructed, and the index of the chosen joker is generated with the key `'Joker'..rarity..'buf1'`. To see more details, read the definition of `create_card` in `functions/common_events.lua`{: .filepath}. I wrote [a simple Lua script](/assets/misc/balatro_get_first_joker.lua) to emulate this process.
 
 ```console
 $ lua balatro_get_first_joker.lua DFRU5D52
@@ -97,7 +98,7 @@ It's similar to create the joker cards for buffoon packs, but the keys for PRNG 
 - the rarity of the generated joker
 - the index of the generated joker in the available pool
 
-Two keys for `pseudoseed` are required. If we can change these keys, the "random" result will change too. Also, the pool of available joker cards affects the result. In conclusiton, the following actions may change which joker card Judgement creates:
+Two keys for `pseudoseed` are required. If we can change these keys, the "random" result will change too. Also, the pool of available joker cards affects the result. In conclusion, the following actions may change which joker card Judgement creates:
 - Increase/decrease the ante (the two keys changes).
 - Buy/sell a joker (the pool changes).
 - Reroll the shop (the pool changes).
@@ -113,7 +114,7 @@ local chosen_joker = pseudorandom_element(jokers, pseudoseed('invisible'))
 ```
 {: file="card.lua"}
 
-Here the key is determined, so we can only control the `jokers` table to change the result. Balatro orders your owned jokers by the time you obtain them. For example, if you obtain the joker cards A, B, C, D sequentially in this game, the variable `jokers` is `{A, B, C, D}`. If the Invisible Joker duplicate C, you know that the current index is 3, which cannot be changed unless you sell another Invisible Joker (then the pseudorandom seed is forwarded). If you do want to duplicate D, just sell one of A, B or C. But there is no way to duplicate A or B, in this case.
+Here the key is determined, so we can only control the `jokers` table to change the result. Balatro orders your owned jokers by the time you obtain them. For example, if you obtain the joker cards A, B, C, D sequentially in this game, the variable `jokers` is `{A, B, C, D}`. If the Invisible Joker duplicates C, you know that the current index is 3, which cannot be changed unless you sell another Invisible Joker (then the pseudorandom seed is forwarded). If you do want to duplicate D, just sell one of A, B or C. But there is no way to duplicate A or B, in this case.
 
 ### The Soul
 
@@ -126,11 +127,11 @@ end
 ```
 {: file="functions/common_events.lua (L2091-2093)"}
 
-At each ante, the key remains the same. But the possibility is extremely small — only when the random number is bigger than 0.997, i.e. 0.3%! We cannot control this probability at all. Open arcana packs and spectral packs as more as possible, and just pray!
+At each ante, the key remains the same. But the possibility is extremely small — only when the random number is bigger than 0.997, i.e. 0.3%! We cannot control this probability at all. Open arcana packs and spectral packs as often as possible, and just pray!
 
 ### The Lucky Money
 
-<span class="inline-card"><img src="/assets/img/2025-07/Lucky_Card.webp" alt="Lucky Card"/></span> **Lucky cards** have the probability of 1 in 15 to give you 20 dollars when scored. The key of its pseudurandom seeds is identical:
+<span class="inline-card"><img src="/assets/img/2025-07/Lucky_Card.webp" alt="Lucky Card"/></span> **Lucky cards** have the probability of 1 in 15 to give you 20 dollars when scored. The key of its pseudorandom seeds is identical:
 
 ```lua
 if pseudorandom('lucky_money') < G.GAME.probabilities.normal/15 then
@@ -140,7 +141,7 @@ end
 ```
 {: file="card.lua (L1076-1078)"}
 
-The only way to earn more money from lucky cards is playing them as more as possible! If the scored lucky card does not give you anything, it's not necessary to save/load and cancel this hand, or you'll still get nothing next time. Just play them and go through more pseudorandom seeds.
+The only way to earn more money from lucky cards is playing them as often as possible! If the scored lucky card does not give you anything, it's not necessary to save/load and cancel this hand, or you'll still get nothing next time. Just play them and go through more pseudorandom seeds.
 
 ## Discussion: The Toxic Seeds
 
@@ -150,11 +151,11 @@ The <span class="inline-card"><img src="/assets/img/2025-07/Erratic_Deck.webp" a
 
 What, 52 spade tens?! Well, this possibility is intuitively tiny, but in fact it's almost impossible in the probability theory!
 
-First let's consider how many decks the erratic deck may generate. Assume we have 52 non-negative integer $a_i$ ($i = 1,2,\cdots,52$), and each variable indicates the number of a specified card in our deck. Then, given the deck size is 52, we have:
+First let's consider how many decks the erratic deck may generate. Assume we have 52 non-negative integers $a_i$ ($i = 1,2,\cdots,52$), and each variable indicates the number of a specified card in our deck. Then, given the deck size is 52, we have:
 
 $$\sum_{i=1}^{52}{a_i} = 52.$$
 
-Our problem transforms into determining the number of solutions to this diophantine equation. This is factually a combination problem, and the answer is
+Our problem transforms into determining the number of solutions to this Diophantine equation. This is in fact a combinatorics problem, and the answer is
 
 $$N_1 = C_{51}^{103} = \frac{103!}{51!\cdot 52!}=791532924062974587678774064068\approx 7.92\times 10^{29}.$$
 
@@ -174,7 +175,7 @@ If you have little intuitive grasp of just how minuscule this probability truly 
 - The probability that you play a royal flush in Holdem is $1.54\times 10^{-6}$.
 - The probability that an asteroid crashes on Earth within the next second is about $10^{-15}$.
 
-When the probability of an event is so small, we can just consider it as "impossible". Not to mention that not only `XEQH7CP9` generates this deck (try `RV35TK35` too). So how can such a coincidence happen in Balatro?
+When the probability of an event is so small, we can just consider it as "impossible". Not to mention that `XEQH7CP9` is not the only seed that generates this deck (try `RV35TK35` too). So how can such a coincidence happen in Balatro?
 
 The problem comes from the `pseudohash` function:
 
@@ -200,7 +201,7 @@ end
 ```
 {: file="functions/misc_functions.lua (L279-296)"}
 
-This function hashes `str` to a number. It travels the string from end to beginning, update the number with the formula at line 5. Note that `num` is never greater than 1 because it's taken the modulus by 1 each time. You may notice the problem: will `num` become less and less, and suddenly turns to zero because of insufficient precision of float? The answer is, yes. When hashing the string `erraticXEQH7CP9`, the process how `num` changes is
+This function hashes `str` to a number. It travels the string from end to beginning, update the number with the formula at line 5. Note that `num` is never greater than 1 because it's taken the modulus by 1 each time. You may notice the problem: will `num` become less and less, and suddenly becomes zero because of insufficient precision of float? The answer is, yes. When hashing the string `erraticXEQH7CP9`, the process how `num` changes is
 
 ```text
 1
@@ -220,7 +221,7 @@ nan
 nan
 ```
 
-`nan` means Not-A-Number in Lua. Any mathematical operation on `nan` results in `nan`. Therefore, the final pseudorandom seed is always `nan`, and if you give `nan` as the seed for `math.randomseed`, `math.random` can only generate one number.
+`nan` stands for Not-A-Number in Lua. Any mathematical operation on `nan` results in `nan`. Therefore, the final pseudorandom seed is always `nan`, and passing `nan` to the seed for `math.randomseed` causes `math.random` to generate the same one number.
 
 ```lua
 math.randomseed(1/0)
@@ -229,7 +230,7 @@ print(math.random()) -- => 0.98541213607668
 
 Spade ten is always chosen when this number is used to pick a game card. Therefore, these toxic seeds always creates a deck consists of 52 spade tens.
 
-If you dig deeper, you'll find there are more seeds leading to some "impossible" events, like all appeared joker cards are holographic, every scored lucky card gives 20 dollars...... Well, most of the time we are unaware of the intrinsic glitch behind the pseudorandom algorithm, but that's not a big deal. After all, we can still play the game happily. Someone who is bored may spend time investigating it, and come up with some interesting but useless conclusions. ☺️
+If you dig deeper, you'll find there are more seeds leading to some "impossible" events, like all appeared joker cards are holographic, every scored lucky card gives 20 dollars...... Well, most of the time we are unaware of the intrinsic glitch behind the pseudorandom algorithm, but that's not a big deal. After all, we can still play the game happily. Some bored soul may spend time investigating it, and arrive at some interesting but useless conclusions. ☺️
 
 ## Reference
 
