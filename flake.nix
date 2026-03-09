@@ -18,7 +18,7 @@
       {
         devShells.default = mkShell {
           packages = [
-            nodejs_20
+            nodejs
             yarn
             ruby_3_3
           ];
