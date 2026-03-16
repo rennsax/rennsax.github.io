@@ -20,7 +20,7 @@
           packages = [
             nodejs
             yarn
-            ruby_3_3
+            ruby
           ];
         };
       }
