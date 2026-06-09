@@ -209,11 +209,17 @@ compress_html:
 exclude:
   - "*.gem"
   - "*.gemspec"
+  - "*.zip"
   - docs
+  - scripts
   - tools
   - README.md
   - LICENSE
+  - Makefile
+  - flake.nix
+  - flake.lock
   - purgecss.js
+  - yarn.lock
   - "*.config.js"
   - "package*.json"
   - temp
