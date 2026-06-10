@@ -59,6 +59,15 @@
 
   {% include_cached favicons.html %}
 
+  <!-- Preload primary webfont -->
+  <link
+    rel="preload"
+    href="{{ '/assets/fonts/LXGWWenKai-Regular.woff2' | relative_url }}"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  >
+
   <!-- Resource Hints -->
   {% unless site.assets.self_host.enabled %}
     {% for hint in site.data.origin.cors.resource_hints %}
