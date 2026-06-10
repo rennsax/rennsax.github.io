@@ -15,6 +15,16 @@ toc: false
       <span>查询日元、港币、人民币、美元之间的最新汇率，并进行金额转换。</span>
     </span>
   </a>
+
+  <a class="tool-entry" href="{{ '/tools/nightreign-quick-ref/' | relative_url }}">
+    <span class="tool-entry__icon" aria-hidden="true">
+      <i class="fas fa-book-open"></i>
+    </span>
+    <span class="tool-entry__body">
+      <strong>Nightreign Quick Ref</strong>
+      <span>Elden Ring Nightreign 的速查笔记与数据参考。</span>
+    </span>
+  </a>
 </section>
 
 <style>
