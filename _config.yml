@@ -220,6 +220,8 @@ exclude:
   - README.md
   - LICENSE
   - Makefile
+  - /assets/fonts/LXGWWenKai-Regular.ttf
+  - /assets/fonts/LXGWWenKai-Regular.woff2
   - flake.nix
   - flake.lock
   - purgecss.js

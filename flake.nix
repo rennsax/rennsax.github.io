@@ -19,6 +19,12 @@
         devShells.default = mkShell {
           packages = [
             nodejs
+            (python3.withPackages (
+              ps: with ps; [
+                brotli
+                fonttools
+              ]
+            ))
             yarn
             ruby
           ];
