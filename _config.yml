@@ -23,7 +23,7 @@ description: >- # used by seo meta and the atom feed
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
-url: "https://rennsax.github.io"
+url: "https://rennsax.com"
 
 github:
   username: rennsax # change to your GitHub username
@@ -46,7 +46,7 @@ social:
 
 # Site Verification Settings
 webmaster_verifications:
-  google: jEjeW7RjQxaETx6hPMaEGInqWrWIwU1IrbR6Cq7UrCQ
+  google: # verified via cloudflare
   bing: # already verified by importing from Google Search Console
   alexa: # fill in your Alexa verification code
   yandex: # fill in your Yandex verification code
