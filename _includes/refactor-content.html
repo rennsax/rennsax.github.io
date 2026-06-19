@@ -65,6 +65,7 @@
     {% assign _attrs = _left | split: '" ' %}
 
     {% assign _src = null %}
+    {% assign _original = null %}
     {% assign _lqip = null %}
     {% assign _class = null %}
 
@@ -80,6 +81,8 @@
       {% case _key %}
         {% when 'src' %}
           {% assign _src = _value %}
+        {% when 'data-original' %}
+          {% assign _original = _value %}
         {% when 'lqip' %}
           {% assign _lqip = _value %}
         {% when 'class' %}
@@ -126,6 +129,7 @@
     {% endif %}
 
     {% assign _final_src = null %}
+    {% assign _popup_src = null %}
     {% assign _lazyload = true %}
 
     {%- capture _img_url -%}
@@ -139,6 +143,16 @@
       {% assign _src_alt = 'src="' | append: _path_prefix %}
       {% assign _left = _left | replace: 'src="', _src_alt %}
     {% endunless %}
+
+    {% if _original %}
+      {%- capture _original_url -%}
+        {% include media-url.html src=_original subpath=page.media_subpath %}
+      {%- endcapture -%}
+
+      {% assign _popup_src = _original_url %}
+    {% else %}
+      {% assign _popup_src = _final_src | default: _src %}
+    {% endif %}
 
     {% if _lqip %}
       {% assign _lazyload = false %}
@@ -182,8 +196,7 @@
 
       {% else %}
         <!-- create the image wrapper -->
-        {% assign _wrapper_start = _final_src
-          | default: _src
+        {% assign _wrapper_start = _popup_src
           | prepend: '<a href="'
           | append: '" class="popup img-link'
           | append: _wrapper_class

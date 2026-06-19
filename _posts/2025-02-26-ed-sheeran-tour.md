@@ -2,8 +2,8 @@
 title: <span class="ed-sheeran">Ed Sheeran Tour</span> (Hangzhou)
 layout: post
 image:
-  path: /assets/img/2025-02/ed-sheeran-cover.jpg
-  lqip: /assets/img/2025-02/ed-sheeran-cover.lqip.jpg
+  path: /assets/img/2025-02/ed-sheeran-cover-1200.webp
+  lqip: /assets/img/2025-02/ed-sheeran-cover-lqip.webp
   alt: 舞台上的 Ed Sheeran
 tags: 随笔
 lang: zh-CN
@@ -15,13 +15,13 @@ date: 2025-02-27 23:00:00 +0800
 
 时间一晃过去，昨天晚上，我就站在杭州奥体中心的内场，为眼前的国际巨星欢呼呐喊，沉醉于他的舞台表演和歌声之中。Ed Sheeran 就在我面前——他抱着吉他，自信满满地走上舞台，热情地向全体观众打招呼，我按捺住激动的心情，提醒自己这一切就是真的。“Everybody stands up!” 黄老板一声豪放的号召，我嗖的一下站起身，尽情地欢呼和跳跃。抢到票以来的两个多月，我积蓄着的所有情感和精力，这一次如挣脱了牢笼，化为了一声声清亮的呐喊。
 
-![Tour Prelude](/assets/img/2025-02/ed-sheeran-1.jpg){: width="600"}
+![Tour Prelude](/assets/img/2025-02/ed-sheeran-1-1200.webp){: width="600" data-original="/assets/img/2025-02/ed-sheeran-1.jpg"}
 
 伴随着 Castle on the Hill 的经典开场，我的思绪也飘回到了初识黄老板年少时光。那时的我还只是一个擅长叛逆的青春期男孩，怀揣着一些出人头地的梦想。如今，这首歌或许已不再是我的最爱，但每次听到，总能开启我对过去的回忆：那个简单纯粹的自己，那些不切实际的梦想，都带着青春独有的中二气息，此时此刻看来却也弥足珍贵。
 
 Ed Sheeran 的魔力在于，不论身处何种年龄阶段和生活境遇，我总能找到与之共鸣的歌曲。他的音乐叙事真挚冻人，源于其私人化的情感表达。无论是 Shape of You 的热恋奔放，还是 Tenerife Sea 的柔情似水，亦或是 Eyes Closed 中痛失挚友的悲痛之情，黄老板的歌声与歌总是词饱含深情，从不做作，富有无穷的力量。
 
-![Castle on the Hill && Shape of You && Tenerife Sea && Eyes Closed](/assets/img/2025-02/ed-sheeran-2.jpg){: width="600"}
+![Castle on the Hill && Shape of You && Tenerife Sea && Eyes Closed](/assets/img/2025-02/ed-sheeran-2-1200.webp){: width="600" data-original="/assets/img/2025-02/ed-sheeran-2.jpg"}
 
 令我意外的是，这一场 Tour 上，黄老板还演唱了我最喜欢的单曲之一——Boat。专辑《-》诞生于黄老板人生的至暗时期，整张专辑的情绪相对阴郁内敛，Boat 也不例外。Boat 是黄他在接连遭遇苦难后的自我疗愈之作，作曲中无法掩盖的沮丧抑郁，与歌词中展现的积极乐观形成对比，展现出顽强的生命力。当我学业不顺、遭遇其他挫折时，我总会想起 Boat 中那句“But the wave won't break my boat”，提醒我即使面对生活的惊涛骇浪，也要保持坚韧，苦难只是短暂的，我们的内心有着无穷的力量。
 

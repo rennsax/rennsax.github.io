@@ -35,7 +35,7 @@ last_modified_at: 2025-06-10 15:32:37 +0800
 
 Beancount 的仓库简介：Double-Entry Accounting from Text Files。这是我第一次听说 **Double-Entry Accounting** 这个名词，Wikipedia 有张图很好地描绘了这种记账形式：
 
-![Double-Entry Bookkeeping Example](/assets/img/2024-12/double-entry_example.png "Double-Entry Bookkeeping Example")
+![Double-Entry Bookkeeping Example](/assets/img/2024-12/double-entry_example-1200.webp "Double-Entry Bookkeeping Example"){: data-original="/assets/img/2024-12/double-entry_example.png"}
 
 Double-Entry Accounting 的中文是复式记账法，因为每笔交易都至少记录在两个不同的账户当中，且该笔交易的借贷双方总额相等，即“有借必有贷，借贷必相等”。复式记账法的优势在于它完备的表达能力。传统的流水记账法面对现实生活中的某些交易场景束手无措，比如我给实验室买了开发板，但是先用自己的钱垫付，如果扣在自己的账户上，就无法表达实验室欠我钱这个信息；如果扣在实验室的账上，自己的账户没有变动，月末对账的时候就会感到头疼。而对复式记账来说，只需要表达成我的账户向实验室账户转入了一笔钱。复式记账也不需要消费类别这一概念，因为不同类别的消费可以表达为资金转入了代表不同消费类别的虚拟账户。统计的时候，只需要计算虚拟账户的余额，就可以立刻得知自己在某个类别上花费了多少钱。
 

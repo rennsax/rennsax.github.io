@@ -5,7 +5,7 @@ tags: Game Mathematic Lua
 math: true
 description: How the RNG works.
 image:
-  path: /assets/img/2025-07/balatro-pseudorandom-cover.png
+  path: /assets/img/2025-07/balatro-pseudorandom-cover-1200.webp
   alt: 52 spade tens in the Erratic Deck
   show_before_content: false
 date: 2025-07-31 21:44:52 +0800
@@ -80,7 +80,7 @@ The first joker in the first buffoon pack (at ante 1) is [Blueprint].
 
 Oh, the first joker card of seed `DFRU5D52` is our beloved <span class="inline-card"><img src="/assets/img/2025-07/Blueprint.webp" alt="Blueprint"/></span> **Blueprint**{: .joker}! Let's check it. All kinds of decks and all levels of stakes are applicable.
 
-![get Blueprint as the first joker](/assets/img/2025-07/DFRU5D52.png)
+![get Blueprint as the first joker](/assets/img/2025-07/DFRU5D52-1200.webp){: data-original="/assets/img/2025-07/DFRU5D52.png"}
 _It's even foil edition!_
 
 ## Case Study
@@ -147,7 +147,7 @@ The only way to earn more money from lucky cards is playing them as often as pos
 
 The <span class="inline-card"><img src="/assets/img/2025-07/Erratic_Deck.webp" alt="Erratic Deck"/></span> Erratic Deck is erratic: Try the seed `XEQH7CP9` with any stake, you will get an incomprehensible deck:
 
-![52 Spade tens](/assets/img/2025-07/all-spade-tens.png)
+![52 Spade tens](/assets/img/2025-07/all-spade-tens-1200.webp){: data-original="/assets/img/2025-07/all-spade-tens.png"}
 
 What, 52 spade tens?! Well, this possibility is intuitively tiny, but in fact it's almost impossible in the probability theory!
 

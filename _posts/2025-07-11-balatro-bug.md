@@ -85,7 +85,7 @@ Archive:  ./Balatro.imazingapp
 
 应用数据恢复后，iPhone 会重启并进入设置引导界面，注意不要选择从其他设备传输数据即可。回到 Balatro 游戏界面，我的存档终于死而复生了😭。
 
-![Final](/assets/img/2025-07/final-Yorick.jpg)
+![Final](/assets/img/2025-07/final-Yorick-1200.webp){: data-original="/assets/img/2025-07/final-Yorick.jpg"}
 _终局_
 
 ## 附录：iOS 完整存档提取
