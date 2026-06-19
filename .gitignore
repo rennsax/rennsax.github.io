@@ -13,12 +13,13 @@ _site
 # NPM dependencies
 node_modules
 
+# Generated assets
+/assets/js/dist/
+/assets/fonts/LXGWWenKai-Regular-subset.woff2
+
 # IDE configurations
 .idea
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
 !.vscode/tasks.json
-
-# Misc
-/assets/fonts/LXGWWenKai-Regular-subset.woff2
