@@ -21,6 +21,7 @@
             nodejs
             yarn
             ruby
+            wrangler
           ];
         };
       }
