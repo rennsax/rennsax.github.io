@@ -20,7 +20,7 @@
     "bootstrap": "^5.3.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
+    "@babel/core": "^7.29.6",
     "@babel/plugin-transform-class-properties": "^7.25.4",
     "@babel/preset-env": "^7.25.4",
     "@rollup/plugin-babel": "^6.0.4",
