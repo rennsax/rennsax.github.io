@@ -19,7 +19,7 @@
         devShells.default = mkShell {
           packages = [
             nodejs
-            yarn
+            corepack
             ruby
             wrangler
           ];
