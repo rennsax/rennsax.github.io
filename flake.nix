@@ -22,6 +22,13 @@
             corepack
             ruby
             wrangler
+            # For generating font subset
+            (python3.withPackages (
+              ps: with ps; [
+                brotli
+                fonttools
+              ]
+            ))
           ];
         };
       }
